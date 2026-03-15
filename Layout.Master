@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="ShopBanQuanAo.Layout" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>KD STORE</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body class="bg-gray-50">
+    <form id="form1" runat="server">
+        <!-- HEADER -->
+        <header class="sticky top-0 z-50 w-full border-b bg-white">
+            <div class="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
+                <!-- LOGO -->
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-pink-600 text-3xl">shopping_bag</span>
+                    <h1 class="text-2xl font-extrabold">KD STORE</h1>
+                </div>
+
+                <!-- MENU -->
+                <nav class="hidden lg:flex items-center gap-8 font-semibold">
+                    <a href="TrangChu.aspx" class="hover:text-pink-600">Trang Chủ</a>
+                    <a href="SanPham.aspx" class="hover:text-pink-600">Sản Phẩm</a>
+                    <a href="Cart.aspx" class="hover:text-pink-600">Giỏ Hàng</a>
+                    <a href="Contact.aspx" class="hover:text-pink-600">Liên Hệ</a>
+                </nav>
+
+                <!-- RIGHT -->
+                <div class="flex items-center gap-4">
+                    <!-- SEARCH -->
+                    <div class="relative hidden sm:block">
+                        <input type="text"
+                               placeholder="Tìm sản phẩm..."
+                               class="h-10 w-48 rounded-full bg-gray-100 pl-10 pr-4 text-sm focus:ring-2 focus:ring-pink-400" />
+                        <span class="material-symbols-outlined absolute left-3 top-2 text-gray-400">search</span>
+                    </div>
+
+                    <!-- USER -->
+                    <asp:HyperLink ID="hlDangNhap" runat="server" NavigateUrl="~/DangNhap.aspx" CssClass="text-pink-600 hover:underline">Đăng nhập</asp:HyperLink>
+                    <span class="material-symbols-outlined">person</span>
+
+                    <!-- CART -->
+                    <a href="Cart.aspx" class="relative flex h-10 w-10 items-center justify-center rounded-full hover:bg-gray-100">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <asp:Label ID="lblCartCount" runat="server" CssClass="absolute -top-1 -right-1 bg-pink-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">0</asp:Label>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <div class="mx-auto max-w-[1280px] px-6 py-8">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="bg-black text-gray-300 mt-20">
+            <div class="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-6 py-16 md:grid-cols-4">
+                <!-- BRAND -->
+                <div>
+                    <h2 class="text-2xl font-bold text-white">KD STORE</h2>
+                    <p class="mt-4 text-sm">
+                        Thời trang hiện đại dành cho phong cách trẻ.
+                        Chúng tôi mang đến những sản phẩm chất lượng
+                        và xu hướng mới nhất.
+                    </p>
+                </div>
+
+                <!-- LINKS -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Danh Mục</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="SanPham.aspx" class="hover:text-pink-500">Quần Áo Nam</a></li>
+                        <li><a href="SanPham.aspx" class="hover:text-pink-500">Quần Áo Nữ</a></li>
+                        <li><a href="SanPham.aspx" class="hover:text-pink-500">Phụ Kiện</a></li>
+                    </ul>
+                </div>
+
+                <!-- SUPPORT -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Hỗ Trợ</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>Chính sách vận chuyển</li>
+                        <li>Đổi trả sản phẩm</li>
+                        <li>Hỗ trợ khách hàng</li>
+                    </ul>
+                </div>
+
+                <!-- CONTACT -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Liên Hệ</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>Email: kdstore@gmail.com</li>
+                        <li>Phone: 0900 000 000</li>
+                        <li>TP.HCM, Việt Nam</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 text-center text-sm py-4">
+                © 2026 KD STORE - Designed by Minh Kha
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
